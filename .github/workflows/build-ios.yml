@@ -5,8 +5,8 @@ on:
 
 jobs:
   build:
-    name: Build iOS Simulator
-    runs-on: ubuntu-latest
+    name: Build unsigned iOS app
+    runs-on: macos-latest
 
     steps:
       - name: Checkout Hydra
@@ -21,10 +21,37 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install EAS CLI
-        run: npm install --global eas-cli
+      - name: Disable Sentry source map upload
+        run: echo "SENTRY_DISABLE_AUTO_UPLOAD=true" >> "$GITHUB_ENV"
 
-      - name: Build with EAS
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-        run: eas build --platform ios --profile simulator --non-interactive --wait
+      - name: Generate iOS project
+        run: npx expo prebuild --platform ios --non-interactive
+
+      - name: Install CocoaPods dependencies
+        working-directory: ios
+        run: pod install
+
+      - name: Build unsigned iOS app
+        working-directory: ios
+        run: |
+          xcodebuild \
+            -workspace Hydra.xcworkspace \
+            -scheme Hydra \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
+
+      - name: Package IPA
+        run: |
+          mkdir Payload
+          cp -R ios/build/Build/Products/Release-iphoneos/Hydra.app Payload/
+          zip -r Hydra.ipa Payload
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: Hydra-unsigned-IPA
+          path: Hydra.ipa

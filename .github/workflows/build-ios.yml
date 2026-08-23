@@ -1,0 +1,30 @@
+name: Build Hydra iOS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build iOS Simulator
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Hydra
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install EAS CLI
+        run: npm install --global eas-cli
+
+      - name: Build with EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas build --platform ios --profile simulator --non-interactive

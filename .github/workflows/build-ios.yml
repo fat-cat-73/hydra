@@ -27,4 +27,4 @@ jobs:
       - name: Build with EAS
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-        run: eas build --platform ios --profile simulator --non-interactive
+        run: eas build --platform ios --profile simulator --non-interactive --wait

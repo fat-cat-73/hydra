@@ -1,7 +1,7 @@
 import { APP_ICON_PLUGIN_ICONS } from "./constants/appIcons";
 import packageJson from "./package.json";
 
-const projectId = "7e403d7f-7747-4daa-a3c9-4acb948f7a60";
+const projectId = "56b3c65a-1660-4ee0-8e50-d56cc681b5c8";
 const IS_DEV = process.env.APP_VARIANT === "development";
 
 const REDDIT_DEEP_LINK_HOSTS = [
@@ -27,7 +27,7 @@ module.exports = {
       appStoreUrl:
         "https://apps.apple.com/us/app/hydra-for-reddit/id6478089063",
       supportsTablet: true,
-      bundleIdentifier: "com.dmilin.hydra",
+      bundleIdentifier: "com.jaykieth73.hydra",
       infoPlist: {
         ITSAppUsesNonExemptEncryption: false,
       },
@@ -58,7 +58,7 @@ module.exports = {
         projectId,
       },
     },
-    owner: "dmilin",
+    owner: "jaykieth73",
     plugins: [
       [
         "expo-media-library",

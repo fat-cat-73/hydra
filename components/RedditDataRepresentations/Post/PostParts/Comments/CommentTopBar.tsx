@@ -41,7 +41,7 @@ export default function CommentTopBar({
         : theme.subtleText;
 
   const authorColor = comment.isOP
-    ? theme.iconOrTextButton
+    ? theme.author
     : comment.isModerator
       ? theme.moderator
       : theme.text;

@@ -24,6 +24,7 @@ import {
   PlaybackCluster,
   PlaybackRateButton,
   MuteButton,
+  SavePostButton,
 } from "./VideoPlaybackControls";
 import VideoSeekBar from "./VideoSeekBar";
 
@@ -197,6 +198,7 @@ const MediaOverlay = forwardRef<MediaOverlayHandle, MediaOverlayProps>(
                   </OverlayIsland>
                   <OverlayIsland style={styles.videoActionsRow}>
                     <SaveMediaButton item={videoItem} />
+                    {post ? <SavePostButton post={post} /> : null}
                     <ShareMediaButton item={videoItem} />
                   </OverlayIsland>
                 </View>
@@ -211,6 +213,7 @@ const MediaOverlay = forwardRef<MediaOverlayHandle, MediaOverlayProps>(
               <>
                 <OverlayIsland style={styles.imageActionsRow}>
                   <SaveMediaButton item={focusedItem} />
+                  {post ? <SavePostButton post={post} /> : null}
                   <ShareMediaButton item={focusedItem} />
                 </OverlayIsland>
                 {albumSize > 1 ? (

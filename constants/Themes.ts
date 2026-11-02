@@ -49,6 +49,7 @@ export type Theme = {
   isPro: boolean;
   text: NonNullColorValue;
   iconOrTextButton: NonNullColorValue;
+  redditLink: NonNullColorValue;
   buttonBg: NonNullColorValue;
   buttonText: NonNullColorValue;
   subtleText: NonNullColorValue;
@@ -68,6 +69,7 @@ export type Theme = {
   share: NonNullColorValue;
   collapse: NonNullColorValue;
   moderator: NonNullColorValue;
+  author: NonNullColorValue;
 };
 
 type Themes = {
@@ -94,6 +96,7 @@ const themes: Themes = {
     text: "#fff",
     isPro: false,
     iconOrTextButton: "#2282fe",
+    redditLink: "#2282fe",
     buttonBg: "#2282fe",
     buttonText: "#fff",
     subtleText: "#ccc",
@@ -113,6 +116,7 @@ const themes: Themes = {
     share: "#ffd700",
     collapse: "#9370db",
     moderator: "#00940f",
+    author: "#2282fe",
   },
   light: {
     key: "light",
@@ -122,6 +126,7 @@ const themes: Themes = {
     text: "#000",
     isPro: false,
     iconOrTextButton: "#2282fe",
+    redditLink: "#2282fe",
     buttonBg: "#2282fe",
     buttonText: "#fff",
     subtleText: "#222",
@@ -141,6 +146,7 @@ const themes: Themes = {
     share: "#ff8c00",
     collapse: "#9932cc",
     moderator: "#00940f",
+    author: "#2282fe",
   },
   midnight: {
     key: "midnight",
@@ -150,6 +156,7 @@ const themes: Themes = {
     text: "#fff",
     isPro: false,
     iconOrTextButton: "#2282fe",
+    redditLink: "#2282fe",
     buttonBg: "#2282fe",
     buttonText: "#fff",
     subtleText: "#e4e9ec",
@@ -169,6 +176,7 @@ const themes: Themes = {
     share: "#9370db",
     collapse: "#40e0d0",
     moderator: "#00940f",
+    author: "#2282fe",
   },
   discord: {
     key: "discord",
@@ -178,6 +186,7 @@ const themes: Themes = {
     text: "#fff",
     isPro: false,
     iconOrTextButton: "#00a8fc",
+    redditLink: "#00a8fc",
     buttonBg: "#00a8fc",
     buttonText: "#fff",
     subtleText: "#e4e9ec",
@@ -197,6 +206,7 @@ const themes: Themes = {
     share: "#faa61a",
     collapse: "#9370db",
     moderator: "#00940f",
+    author: "#00a8fc",
   },
   spotify: {
     key: "spotify",
@@ -206,6 +216,7 @@ const themes: Themes = {
     text: "#fff",
     isPro: false,
     iconOrTextButton: "#1fdf64",
+    redditLink: "#1fdf64",
     buttonBg: "#1fdf64",
     buttonText: "#fff",
     subtleText: "#dcdcdc",
@@ -225,6 +236,7 @@ const themes: Themes = {
     share: "#ff6b35",
     collapse: "#8a2be2",
     moderator: "#4687d6",
+    author: "#1fdf64",
   },
   strawberry: {
     key: "strawberry",
@@ -234,6 +246,7 @@ const themes: Themes = {
     text: "#2d1f21",
     isPro: false,
     iconOrTextButton: "#FF6B6B",
+    redditLink: "#FF6B6B",
     buttonBg: "#FF6B6B",
     buttonText: "#ffffff",
     subtleText: "#5a3d3f",
@@ -253,6 +266,7 @@ const themes: Themes = {
     share: "#ff9500",
     collapse: "#9370db",
     moderator: "#2E8B57",
+    author: "#FF6B6B",
   },
   spiderman: {
     key: "spiderman",
@@ -262,6 +276,7 @@ const themes: Themes = {
     text: "#ffffff",
     isPro: false,
     iconOrTextButton: "#FF0000",
+    redditLink: "#FF0000",
     buttonBg: "#FF0000",
     buttonText: "#ffffff",
     subtleText: "#e8e8e8",
@@ -281,6 +296,7 @@ const themes: Themes = {
     share: "#FFD700",
     collapse: "#ff69b4",
     moderator: "#1E90FF",
+    author: "#FF0000",
   },
   gilded: {
     key: "gilded",
@@ -290,6 +306,7 @@ const themes: Themes = {
     text: "#ffffff",
     isPro: true,
     iconOrTextButton: "#FFD700",
+    redditLink: "#FFD700",
     buttonBg: "#FFD700",
     buttonText: "#1a1a1a",
     subtleText: "#e8e3d9",
@@ -309,6 +326,7 @@ const themes: Themes = {
     share: "#F4A460",
     collapse: "#9370db",
     moderator: "#2E8B57",
+    author: "#FFD700",
   },
   mulberry: {
     key: "mulberry",
@@ -318,6 +336,7 @@ const themes: Themes = {
     text: "#ffffff",
     isPro: true,
     iconOrTextButton: "#FFB4B4",
+    redditLink: "#FFB4B4",
     buttonBg: "#FFB4B4",
     buttonText: "#2d1f21",
     subtleText: "#e8e1e2",
@@ -337,6 +356,7 @@ const themes: Themes = {
     share: "#DDA0DD",
     collapse: "#32cd32",
     moderator: "#4682B4",
+    author: "#FFB4B4",
   },
   ocean: {
     key: "ocean",
@@ -346,6 +366,7 @@ const themes: Themes = {
     text: "#ffffff",
     isPro: true,
     iconOrTextButton: "#66D9EF",
+    redditLink: "#66D9EF",
     buttonBg: "#66D9EF",
     buttonText: "#1a2632",
     subtleText: "#e1e9ed",
@@ -365,6 +386,7 @@ const themes: Themes = {
     share: "#20B2AA",
     collapse: "#ff6347",
     moderator: "#32CD32",
+    author: "#66D9EF",
   },
   aurora: {
     key: "aurora",
@@ -374,6 +396,7 @@ const themes: Themes = {
     text: "#ffffff",
     isPro: true,
     iconOrTextButton: "#A5FFD6",
+    redditLink: "#A5FFD6",
     buttonBg: "#A5FFD6",
     buttonText: "#1a2428",
     subtleText: "#e2ede8",
@@ -393,6 +416,7 @@ const themes: Themes = {
     share: "#40E0D0",
     collapse: "#da70d6",
     moderator: "#4169E1",
+    author: "#A5FFD6",
   },
   royal: {
     key: "royal",
@@ -402,6 +426,7 @@ const themes: Themes = {
     text: "#ffffff",
     isPro: true,
     iconOrTextButton: "#9D4EDD",
+    redditLink: "#9D4EDD",
     buttonBg: "#9D4EDD",
     buttonText: "#ffffff",
     subtleText: "#e6e1ed",
@@ -421,6 +446,7 @@ const themes: Themes = {
     share: "#FFB347",
     collapse: "#32cd32",
     moderator: "#4682B4",
+    author: "#9D4EDD",
   },
 };
 

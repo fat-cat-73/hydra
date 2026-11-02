@@ -268,7 +268,7 @@ function RedditLink({
   const { theme } = useContext(ThemeContext);
   const { pushURL } = useURLNavigation();
 
-  inheritedStyles.color = theme.iconOrTextButton;
+  inheritedStyles.color = theme.redditLink;
   return (
     <Text style={{ ...inheritedStyles }}>
       {renderChildNodes(element, inheritedStyles, {

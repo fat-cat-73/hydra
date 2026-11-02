@@ -108,7 +108,7 @@ function makeThemeStyles(theme: Theme) {
       color: theme.subtleText,
     },
     marker: { fontSize: 16, lineHeight: lineHeight(16), color: theme.text },
-    link: { color: theme.iconOrTextButton },
+    link: { color: theme.redditLink },
     // divider, not tint, so code stays visible inside tinted quotes.
     code: {
       fontFamily: MONOSPACE,
@@ -507,7 +507,7 @@ function RedditLink({
     <Text style={hidden ? undefined : ctx.s.link}>
       {renderInlineNodes(
         element.children,
-        hidden ? ts : { ...ts, color: ctx.theme.iconOrTextButton },
+        hidden ? ts : { ...ts, color: ctx.theme.redditLink },
         hidden ? ctx : { ...ctx, onPress },
       )}
     </Text>

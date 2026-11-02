@@ -90,6 +90,12 @@ const COLOR_GROUPS = {
       description:
         "Buttons that are just text without a container like navbar text buttons",
     },
+    {
+      field: "redditLink",
+      label: "Links",
+      description:
+        "Embedded links within text bodies",
+    },
   ],
   Icons: [
     {
@@ -157,6 +163,12 @@ const COLOR_GROUPS = {
       label: "Moderator",
       description:
         "Color of moderator usernames and other moderator related elements",
+    },
+    {
+      field: "author",
+      label: "Author",
+      description:
+        "Color of OP's username within the comment section",
     },
   ],
 };

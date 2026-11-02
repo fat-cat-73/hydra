@@ -5,6 +5,9 @@ import { VideoPlayer } from "expo-video";
 import { useEffect, useRef, useState } from "react";
 import { Alert, StyleSheet, Text } from "react-native";
 import { Touchable } from "react-native-gesture-handler";
+import { Post } from "../../../../api/Posts";
+import { PostDetail } from "../../../../api/PostDetail";
+import { saveItem } from "../../../../api/Save";
 
 import {
   OVERLAY_BACKGROUND_COLOR,
@@ -175,6 +178,47 @@ export function MuteButton({
         name={muted || !hasAudio ? "volume-x" : "volume-2"}
         size={20}
         color={hasAudio ? "white" : "#888"}
+      />
+    </Touchable>
+  );
+}
+
+export function SavePostButton({ post }: { post: Post | PostDetail }) {
+  const { bumpAutoHide } = useOverlayInteraction();
+  const [isSaved, setIsSaved] = useState(post.saved);
+  const [isSaving, setIsSaving] = useState(false);
+
+  useEffect(() => {
+    setIsSaved(post.saved);
+  }, [post.id, post.saved]);
+
+  return (
+    <Touchable
+      activeOpacity={0.2}
+      animationDuration={{ in: 0, out: 150 }}
+      style={styles.rateButton}
+      accessibilityRole="button"
+      accessibilityLabel={isSaved ? "Unsave post" : "Save post"}
+      disabled={isSaving}
+      onPress={async () => {
+        const nextSaved = !isSaved;
+        setIsSaving(true);
+        bumpAutoHide();
+        try {
+          await saveItem(post, nextSaved);
+          setIsSaved(nextSaved);
+        } catch {
+          Alert.alert("Could not save post", "Please try again.");
+        } finally {
+          setIsSaving(false);
+          bumpAutoHide();
+        }
+      }}
+    >
+      <FontAwesome
+        name={isSaved ? "bookmark" : "bookmark-o"}
+        size={18}
+        color="white"
       />
     </Touchable>
   );

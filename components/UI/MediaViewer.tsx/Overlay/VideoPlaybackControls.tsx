@@ -7,7 +7,7 @@ import { Alert, StyleSheet, Text } from "react-native";
 import { Touchable } from "react-native-gesture-handler";
 import { Post } from "../../../../api/Posts";
 import { PostDetail } from "../../../../api/PostDetail";
-import { saveItem } from "../../../../api/Save";
+import { saveItem } from "../../../../api/gql/Save";
 
 import {
   OVERLAY_BACKGROUND_COLOR,

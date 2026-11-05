@@ -93,8 +93,7 @@ const COLOR_GROUPS = {
     {
       field: "redditLink",
       label: "Links",
-      description:
-        "Embedded links within text bodies",
+      description: "Embedded links within text bodies",
     },
   ],
   Icons: [
@@ -167,8 +166,7 @@ const COLOR_GROUPS = {
     {
       field: "author",
       label: "Author",
-      description:
-        "Color of OP's username within the comment section",
+      description: "Color of OP's username within the comment section",
     },
   ],
 };
